@@ -1,0 +1,19 @@
+{
+  "name": "@chessdb.biz/maki-client",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "pwsh ../../../scripts/NetRestore.ps1",
+    "build": "pwsh ../../../scripts/NetBuild.ps1",
+    "clean": "pwsh ../../../scripts/NetClean.ps1",
+    "test": "pwsh ../../../scripts/NetTest.ps1"
+  },
+  "dependencies": {
+    "@chessdb.biz/maki-client": "../Maki.Model/"
+  },
+  "dotnet": {
+    "projects": [
+      "Maki.Client"
+    ]
+  }
+}

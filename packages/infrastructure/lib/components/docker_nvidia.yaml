@@ -1,0 +1,41 @@
+name: DockerWithNvidiaRuntime
+description: This installs Docker with the Nvidia runtime.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: ConfigureRepo
+        action: ExecuteBash
+        inputs:
+          commands:
+            - sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
+            - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+            - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+            - sudo apt update
+            - sudo apt-cache policy docker-ce
+      - name: InstallDocker
+        action: ExecuteBash
+        inputs:
+          commands:
+            - sudo apt install docker-ce -y
+      - name: ConfigureStartup
+        action: ExecuteBash
+        inputs:
+          commands:
+            - sudo systemctl enable docker
+      - name: InstallNvidiaRuntime
+        action: ExecuteBash
+        inputs:
+          commands:
+            - export PSEUDO_DISTRO='ubuntu20.04'
+            - curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+            - curl -s -L https://nvidia.github.io/nvidia-docker/$PSEUDO_DISTRO/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+            - sudo apt-get update
+            - DEBIAN_FRONTEND=noninteractive apt-get install -y nvidia-docker2
+            - systemctl daemon-reload
+            - systemctl restart docker.service
+            - aws s3 cp s3://chessdb-maki-ami-resources/docker_service ./docker.service
+            - sudo mv ./docker.service /lib/systemd/system/docker.service
+            - systemctl daemon-reload
+            - systemctl restart docker.service

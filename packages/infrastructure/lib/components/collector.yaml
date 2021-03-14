@@ -1,0 +1,12 @@
+name: ContainerLogCollector
+description: This adds the CloudWatch Logs Agent config file to collect logs from containers.
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: Configure
+        action: ExecuteBash
+        inputs:
+          commands:
+            - aws s3 cp s3://chessdb-maki-ami-resources/amazon-cloudwatch-agent.json /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="xunit" />
+        <PackageReference Include="xunit.runner.visualstudio" />
+        <PackageReference Include="coverlet.collector" />
+        <PackageReference Include="JUnitTestLogger" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Maki.Embedded\Maki.Embedded.csproj" />
+      <ProjectReference Include="..\..\Maki.Client\Maki.Client\Maki.Client.csproj" />
+    </ItemGroup>
+
+</Project>

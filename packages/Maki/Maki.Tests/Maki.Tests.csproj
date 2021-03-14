@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+        <PackageReference Include="Docker.DotNet" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="xunit" />
+        <PackageReference Include="xunit.runner.visualstudio" />
+        <PackageReference Include="coverlet.collector" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\projects\Maki.Client\Maki.Client\Maki.Client.csproj" />
+      <ProjectReference Include="..\..\projects\Maki.Embedded\Maki.Embedded\Maki.Embedded.csproj" />
+      <ProjectReference Include="..\Maki\Maki.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="stockfish" />
+      <Content Include="stockfish">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

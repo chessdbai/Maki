@@ -1,0 +1,16 @@
+{
+  "name": "@chessdb.biz/maki-telemetry",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "pwsh ../../../scripts/NetRestore.ps1",
+    "build": "pwsh ../../../scripts/NetBuild.ps1",
+    "clean": "pwsh ../../../scripts/NetClean.ps1",
+    "test": "pwsh ../../../scripts/NetTest.ps1"
+  },
+  "dotnet": {
+    "projects": [
+      "Maki.Telemetry"
+    ]
+  }
+}

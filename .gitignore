@@ -1,0 +1,15 @@
+node_modules/
+.idea/
+packages/**/node_modules
+packages/**/bin
+packages/**/obj
+packages/**/dist
+packages/Maki/engines/weights
+packages/infrastructure/cdk.out
+packages/projects/**/node_modules
+packages/projects/**/bin
+packages/projects/**/obj
+packages/projects/**/dist
+*.user
+**/*.user
+**/*.dll

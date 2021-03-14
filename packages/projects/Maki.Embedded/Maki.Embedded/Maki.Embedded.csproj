@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Maki.Client\Maki.Client\Maki.Client.csproj" />
+      <ProjectReference Include="..\..\..\Maki\Maki\Maki.csproj" />
+    </ItemGroup>
+
+</Project>

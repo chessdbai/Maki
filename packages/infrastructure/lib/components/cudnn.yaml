@@ -1,0 +1,25 @@
+name: NvidiaCUDA11dot2
+description: This installs Nvidia CUDA 11.2
+schemaVersion: 1.0
+
+phases:
+  - name: build
+    steps:
+      - name: ConfigureRepo
+        action: ExecuteBash
+        inputs:
+          commands:
+            - export OS=ubuntu2004
+            - wget https://developer.download.nvidia.com/compute/cuda/repos/${OS}/x86_64/cuda-${OS}.pin 
+            - sudo mv cuda-${OS}.pin /etc/apt/preferences.d/cuda-repository-pin-600
+            - sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/${OS}/x86_64/7fa2af80.pub
+            - sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/${OS}/x86_64/ /"
+      - name: Install
+        action: ExecuteBash
+        inputs:
+          commands:
+            - export CUDNN_VERSION=8.1.1.*
+            - export CUDA_VERSION=cuda11.2
+            - sudo apt-get update
+            - sudo apt-get install libcudnn8=${CUDNN_VERSION}-1+${CUDA_VERSION}
+            - sudo apt-get install libcudnn8-dev=${CUDNN_VERSION}-1+${CUDA_VERSION}

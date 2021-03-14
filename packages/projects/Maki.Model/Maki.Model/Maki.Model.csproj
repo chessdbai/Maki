@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+      <PackageReference Include="ChessBot.Pgn" />
+      <PackageReference Include="Newtonsoft.Json" />
+      <PackageReference Include="protobuf-net" />
+      <PackageReference Include="StyleCop.Analyzers" />
+      <PackageReference Include="System.ComponentModel.Annotations" />
+    </ItemGroup>
+
+</Project>

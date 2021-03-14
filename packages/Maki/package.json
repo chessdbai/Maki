@@ -1,0 +1,28 @@
+{
+  "name": "@chessdb.biz/maki-src",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "./scripts/net-restore.sh",
+    "build": "./scripts/net-build.sh",
+    "pack": "pwsh ./scripts/Pack.ps1",
+    "publish-docker": "pwsh ./scripts/Publish.ps1",
+    "clean": "./scripts/net-clean.sh",
+    "test": "./scripts/net-test.sh local",
+    "test-docker": "./scripts/net-test.sh docker",
+    "server": "./scripts/net-run.sh",
+    "release": "npm run build && npm run pack && npm run test"
+  },
+  "dependencies": {
+    "@chessdb.biz/maki-client": "../projects/Maki.Model/",
+    "@chessdb.biz/maki-telemetry": "../projects/Maki.Telemetry/"
+  },
+  "dotnet": {
+    "testProjects": [
+      "Maki.Tests"
+    ],
+    "projects": [
+      "Maki"
+    ]
+  }
+}
