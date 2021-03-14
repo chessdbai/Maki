@@ -1,5 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <PropertyGroup>
+        <Title>Maki.Model</Title>
+        <Description>The model package for the Maki UCI engine server wrapper.</Description>
+        <PackageTags>maki chessdbai chessdb engine uci chess</PackageTags>
+        <TargetFramework>net5.0</TargetFramework>
+        <PackageId>Maki.Model</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>john@chessdb.biz</Authors>
+        <Company>ChessDB</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
     <ItemGroup>
       <PackageReference Include="ChessBot.Pgn" />
       <PackageReference Include="Newtonsoft.Json" />

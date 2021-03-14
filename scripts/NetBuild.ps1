@@ -11,7 +11,7 @@ $buildProjects | ForEach-Object {
   $buildProcess = Start-Process `
     -FilePath "dotnet" `
     -WorkingDirectory $subprojectPath `
-    -ArgumentList "build" `
+    -ArgumentList 'build','-c','Release' `
     -PassThru
   Wait-Process -InputObject $buildProcess
   $exitCode = $buildProcess.ExitCode

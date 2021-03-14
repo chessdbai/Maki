@@ -14,6 +14,15 @@ function Find-Up($pathtosearch, $filename)
   }
 }
 
+function Get-AssemblyVersion() {
+  param([string] $file)
+  
+  $version = [System.Reflection.AssemblyName]::GetAssemblyName($file).Version;
+  
+  #format the version and output it...
+  $version
+}
+
 function Get-LernaRoot {
   $myDir = Get-Location
   $rootDir = Find-Up $myDir "lerna.json"
@@ -105,4 +114,4 @@ function Get-DotNetGlobalToolInstalled([String] $ToolName) {
 }
 
 
-Export-ModuleMember -Function Get-RootTestReportsPath,Get-DeclaredSubprojects,Get-DeclaredTestSubprojects,Get-ProjectRoot,Get-LernaRoot,Get-ProjectTestReportsPath,Get-ProjectName,Get-DotNetGlobalToolInstalled,Install-DotNetGlobalTool
+Export-ModuleMember -Function Get-AssemblyVersion,Get-RootTestReportsPath,Get-DeclaredSubprojects,Get-DeclaredTestSubprojects,Get-ProjectRoot,Get-LernaRoot,Get-ProjectTestReportsPath,Get-ProjectName,Get-DotNetGlobalToolInstalled,Install-DotNetGlobalTool
