@@ -65,6 +65,7 @@ namespace Maki.Embedded
                 app.UseRouting();
                 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
+                // I can add a note here to remind me what this does
                 var webSocketOptions = new WebSocketOptions()
                 {
                     KeepAliveInterval = TimeSpan.FromSeconds(120),
